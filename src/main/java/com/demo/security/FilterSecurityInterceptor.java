@@ -9,6 +9,10 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import javax.servlet.*;
 import java.io.IOException;
 
+/**
+ * 自定义过滤器
+ *
+ */
 public class FilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
 
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
@@ -40,15 +44,7 @@ public class FilterSecurityInterceptor extends AbstractSecurityInterceptor imple
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         FilterInvocation filterInvocation = new FilterInvocation(request, response, chain);
-        invoke(filterInvocation);
-    }
 
-    @Override
-    public void destroy() {
-
-    }
-
-    private void invoke(FilterInvocation filterInvocation) throws IOException, ServletException {
         InterceptorStatusToken token = super.beforeInvocation(filterInvocation);
         try {
             filterInvocation.getChain().doFilter(filterInvocation.getRequest(), filterInvocation.getResponse());
@@ -56,4 +52,10 @@ public class FilterSecurityInterceptor extends AbstractSecurityInterceptor imple
             super.afterInvocation(token, null);
         }
     }
+
+    @Override
+    public void destroy() {
+
+    }
+
 }

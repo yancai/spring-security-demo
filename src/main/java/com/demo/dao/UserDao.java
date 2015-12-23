@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 用户信息访问类
+ *
+ * 可以在此处使用需要的方式获取信息，如从数据库、XML、文本等获取
+ */
 public class UserDao {
 
     private static Map<String, User> userMap = loadUser();

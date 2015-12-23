@@ -10,6 +10,11 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 import java.util.Collection;
 import java.util.Map;
 
+/**
+ * 资源元数据类
+ *
+ * 负责提供资源数据信息
+ */
 public class SecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
     private UrlMatcher urlMatcher = new AntUrlPathMatcher();
 

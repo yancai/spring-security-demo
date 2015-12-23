@@ -9,6 +9,11 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
+/**
+ * 访问决策管理器
+ *
+ * 决策某个资源（页面）是否可被当前用户所属的角色访问
+ */
 public class AccessDecisionManagerImpl implements AccessDecisionManager {
     @Override
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
